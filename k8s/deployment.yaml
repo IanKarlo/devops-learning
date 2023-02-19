@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deploy-app
+  template:
+    metadata:
+      labels:
+        app: deploy-app
+    spec:
+      containers:
+        - name: node-app
+          image: ikts/devops-learning
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
