@@ -1,11 +1,11 @@
-FROM node:latest
+FROM node
 
 WORKDIR /app
 
-COPY package.json .
+COPY ./code /app/
 
 RUN npm i
 
-COPY . .
+EXPOSE 8080
 
 CMD ["npm", "start"]
